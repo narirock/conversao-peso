@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicasetdotnet
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: peso
+  template:
+    metadata:
+      labels:
+        app: peso
+    spec:
+      containers:
+        - name: peso
+          image: narirock2/dotnet_kubdev:v1
+          ports:
+            - containerPort: 80
